@@ -1,10 +1,6 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+{{!-- render article posts from post-info handlebar --}}
+{{> post-info post }}
+
 
 {{!-- conditionally render the comment form, if the user is logged in --}}
 {{#if loggedIn}}
@@ -20,18 +16,8 @@
 </form>
 {{/if}}
 
-<div class="comments">
-  {{#each post.comments}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{created_at}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
-</div>
+{{!-- render comment posts from comments handlebar --}}
+{{> comments post.comments}}
 
 {{!-- conditionally render the <script> elements --}}
 {{#if loggedIn}}
