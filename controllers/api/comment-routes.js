@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth');
 const { Comment } = require('../../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
   Comment.findAll()
@@ -49,4 +49,4 @@ router.delete('/:id', withAuth, (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router, withAuth;
