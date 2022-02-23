@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -148,4 +148,4 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
-module.exports = router, withAuth;
+module.exports = router;
